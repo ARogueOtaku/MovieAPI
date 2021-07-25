@@ -4,7 +4,7 @@
   "description": "A Netlify Serveless Function around TMDB API",
   "main": "./api/listener.js",
   "scripts": {
-    "test": "node ."
+    "test": "netlify dev"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +12,8 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^5.2.3"
   }
 }
