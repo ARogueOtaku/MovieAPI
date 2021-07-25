@@ -13,13 +13,12 @@ const validateRequest = (netlifyEvent) => {
   if (netlifyEvent.httpMethod !== "GET") throw "Only GET Requests Allowed";
   const allowedOrigins = process.env.allowedOrigins.split(process.env.delimeter || ";");
   if (!process.env.allowedOrigins.includes(netlifyEvent.headers.host)) throw "Uauthorized";
-  return { "Access-Control-Allow-Origin": netlifyEvent.headers.host };
 };
 
 exports.handler = async (evt) => {
-  let headers = { "Access-Control-Allow-Origin": evt.headers.host };
+  let headers = { "Access-Control-Allow-Origin": "*" };
   try {
-    headers = validateRequest(evt);
+    validateRequest(evt);
     const API_URL = getTMDBUrl(evt);
     const response = await fetch(API_URL);
     const data = await response.json();
