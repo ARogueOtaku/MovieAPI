@@ -40,7 +40,7 @@ const validateRequest = (netlifyEvent) => {
 //API Request Handler
 exports.handler = async (evt) => {
   const valResult = validateRequest(evt);
-  console.log(evt);
+  console.log("Validation Result", valResult);
   try {
     if (valResult["err"]) throw valResult["err"];
     const API_URL = getTMDBUrl(evt);
