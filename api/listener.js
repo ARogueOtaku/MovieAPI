@@ -14,9 +14,7 @@ const getTMDBUrl = (netlifyEvent) => {
 const validateRequest = (netlifyEvent) => {
   const validationResult = {
     err: undefined,
-    headers: {
-      "Access-Control-Allow-Origin": "",
-    },
+    headers: {},
   };
   //Validate HTTP Method
   if (netlifyEvent.httpMethod !== "GET") {
